@@ -16,7 +16,7 @@ This project addresses **sensor drift** in metal oxide semiconductor (MOS) gas s
 | **R² Score**    | 0.997          | 0.969         |
 | **MSE**         | 78.12          | 901.07        |
 
-![Feature Importance](media/feature_importance.png) <!-- Add feature importance plot -->
+![Feature Importance](feature_importance.png) <!-- Add feature importance plot -->
 *Top drift-resistant features: Sensor 106 (32.4%) and Sensor 98 (21.5%).*
 
 ![Batch Performance](media/batch_performance.png) <!-- Add batch-wise R² plot -->
