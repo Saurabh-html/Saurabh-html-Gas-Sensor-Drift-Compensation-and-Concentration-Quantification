@@ -47,6 +47,7 @@ pip install -r requirements.txt
 ![Model Deployment](media/model_deployment.png) 
 
 **Output**
+![Residual Plot](media/residual_plot.png) 
 ![Output](media/Output.png) 
 
 **🔮 Future Scope**
