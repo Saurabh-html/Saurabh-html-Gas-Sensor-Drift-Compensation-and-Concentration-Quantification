@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gas Concentration Prediction</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            max-height: 70vh;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .input-group label {
+            font-size: 0.9em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Gas Concentration Prediction</h1>
+        <form action="/predict" method="post">
+            <!-- Gas Type Dropdown (6 Gases) -->
+            <div class="input-group">
+                <label for="gas_type">Gas Type:</label>
+                <select name="gas_type" id="gas_type" required class="full-width">
+                    <option value="1">Ammonia</option>
+                    <option value="2">Acetaldehyde</option>
+                    <option value="3">Acetone</option>
+                    <option value="4">Ethylene</option>
+                    <option value="5">Ethanol</option>
+                    <option value="6">Toluene</option>
+                </select>
+            </div>
+
+            <!-- Sensor Features Grid (128 Features) -->
+            <div class="feature-grid">
+                {% for i in range(1, 129) %}
+                <div class="input-group">
+                    {% set sensor_number = ((i-1) // 8) + 1 %}
+                    {% set feature_type = (i-1) % 8 %}
+                    <label for="feature_{{i}}">
+                        Sensor {{ sensor_number }} - 
+                        {% if feature_type == 0 %}
+                            DR
+                        {% elif feature_type == 1 %}
+                            |DR|
+                        {% elif feature_type >= 2 and feature_type <= 4 %}
+                            EMA-Rising (α={{ [0.001, 0.01, 0.1][feature_type - 2] }})
+                        {% else %}
+                            EMA-Decaying (α={{ [0.001, 0.01, 0.1][feature_type - 5] }})
+                        {% endif %}
+                    </label>
+                    <input type="number" name="feature_{{i}}" id="feature_{{i}}" 
+                           step="0.0001" required placeholder="Enter value">
+                </div>
+                {% endfor %}
+            </div>
+
+            <button type="submit">Predict Concentration</button>
+        </form>
+    </div>
+</body>
+</html>
