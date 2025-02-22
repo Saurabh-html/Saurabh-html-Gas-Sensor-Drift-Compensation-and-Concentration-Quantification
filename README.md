@@ -19,7 +19,7 @@ This project addresses **sensor drift** in metal oxide semiconductor (MOS) gas s
 ![Feature Importance](feature_importance.png) <!-- Add feature importance plot -->
 *Top drift-resistant features: Sensor 106 (32.4%) and Sensor 98 (21.5%).*
 
-![Batch Performance](media/batch_performance.png) <!-- Add batch-wise R² plot -->
+![Batch Performance](batch_performance.png) <!-- Add batch-wise R² plot -->
 *R² degradation from 0.98 (Batch 1) to 0.92 (Batch 10) over 36 months.*
 
 ## ⚙️ Installation
@@ -44,11 +44,11 @@ pip install -r requirements.txt
 └── requirements.txt        # Dependencies
 
 **Model Deployment**
-![Model Deployment](media/model_deployment.png) 
+![Model Deployment](model_deployment.png) 
 
 **Output**
-![Residual Plot](media/residual_plot.png) 
-![Output](media/Output.png) 
+![Residual Plot](residual_plot.png) 
+![Output](Output.png) 
 
 **🔮 Future Scope**
 -Deploy pruned models on Raspberry Pi for real-time drift correction.
