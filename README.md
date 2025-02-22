@@ -25,7 +25,7 @@ This project addresses **sensor drift** in metal oxide semiconductor (MOS) gas s
 ## ⚙️ Installation
 1. **Clone the repository**:
    ```bash
-   git clone https://github.com/yourusername/gas-sensor-drift-compensation.git
+   git clone [https://github.com/yourusername/gas-sensor-drift-compensation.git](https://github.com/Saurabh-html/Saurabh-html-Gas-Sensor-Drift-Compensation-and-Concentration-Quantification/edit/main)
    cd gas-sensor-drift-compensation
    
 2. **Installation Dependencies**
